@@ -40,7 +40,14 @@ public class ArrayList {
     public int getArrayLength() {
         return datas.length;
     }
-
+    public void addAt(int idx,int data){
+        if(isFull())
+            datas = Arrays.copyOf(datas, datas.length *2);
+        for(int i = size-1;i>=idx;i--){
+            datas[i]=datas[i+1];
+        }
+        datas[idx] = data;
+    }
     public void showAllValues() {
         System.out.println("== 전체 데이터 출력 ==");
 
